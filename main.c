@@ -54,8 +54,14 @@ int				main(void)
 
 	addEntity(&g_player.vertex);
 
-	newBall(-0.7, -0.2, 0.02);
+	// newBall(-0.7, -0.2, 0.02);
 //	newBall(0.6, -0.0, 0.02);
+	newWall(-0.9, -0.9, 0.01, 0.01);
+	newWall(0.9, -0.9, 0.01, 0.01);
+	newWall(0.9, 0.9, 0.01, 0.01);
+	newWall(-0.9, 0.9, 0.01, 0.01);
+	// newWall(-0.9, 0.9, 1.95, 0.2);
+//	newWall(0.9, 0.9, 2, 0.01);
 
 	newBrick(-1, 0.8, 0.15, 0.05);
 	newBrick(-0.84, 0.8, 0.15, 0.05);

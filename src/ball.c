@@ -73,18 +73,6 @@ void		basicBallUpdate(t_Entity * e)
 					//	e->direction.x -= (e->direction.x * 2);
 						printf("collision\n");
 					}
-					if (e->shape.V3f.x > 0.9)
-					{
-						e->direction.x *= -1;
-					}
-					if (e->shape.V3f.y > 0.9)
-					{
-						e->direction.y *= -1;
-					}
-					if (e->shape.V3f.x < -0.9)
-					{
-						e->direction.x *= -1;
-					}
 					if (e->shape.V3f.y < -0.9)
 					{
 						printf("YOU LOOSE\n");

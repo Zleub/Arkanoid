@@ -1,51 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   brick.c                                            :+:      :+:    :+:   */
+/*   wall.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtauffli <mtauffli@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/05/02 18:00:55 by mtauffli          #+#    #+#             */
-/*   Updated: 2015/05/02 18:00:55 by mtauffli         ###   ########.fr       */
+/*   Created: 2015/05/02 21:03:06 by mtauffli          #+#    #+#             */
+/*   Updated: 2015/05/02 21:03:07 by mtauffli         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <arkanoid.h>
-/*
-int			Collision(GLfloat x, GLfloat y, t_Vertex4f v)
-{
-	if (x >= v.x
-		&& x < v.x + v.width
-		&& y >= v.y
-		&& y < v.y + v.height)
-		return 1;
-	else
-		return 0;
-}
 
-int			BrickCollision(GLfloat x, GLfloat y, t_Vertex3f v)
-{
-	GLfloat tmp1;
-	GLfloat tmp2;
-	// if (v.x < 0)
-	// 	tmp1 = x + v.x;
-	// else
-		tmp1 = (x + 1) - (v.x + 1);
-	// if (v.y < 0)
-	// 	tmp2 = y + v.y;
-	// else
-		tmp2 = (y + 1) - (v.y + 1);
-	// printf("%f .. %f\n", tmp1, tmp2);
-	GLfloat circle = tmp1 * tmp1 + tmp2 * tmp2;
-
-	// printf("%f .. %f\n", circle, v.radius * v.radius);
-	if (circle > v.radius * v.radius)
-		return 0;
-	else
-		return 1;
-}
-*/
-void		basicBrickUpdate(t_Entity * e)
+void		basicWallUpdate(t_Entity * e)
 {
 	(void)e;
 	printf("e update:\n");
@@ -82,7 +49,7 @@ void		basicBrickUpdate(t_Entity * e)
 }
 
 
-void		newBrick(GLfloat x, GLfloat y, GLfloat width, GLfloat height)
+void		newWall(GLfloat x, GLfloat y, GLfloat width, GLfloat height)
 {
 	t_Entity		*new;
 
@@ -95,6 +62,6 @@ void		newBrick(GLfloat x, GLfloat y, GLfloat width, GLfloat height)
 	new->shape.V4f.y = y;
 	new->shape.V4f.width = width;
 	new->shape.V4f.height = height;
-	new->_update = basicBrickUpdate;
+	new->_update = basicWallUpdate;
 	addEntity(new);
 }
