@@ -1,5 +1,7 @@
 Basic Arkanoid.
 
+`git clone && make`
+
     Entity System:
         Everything is an Entity, even specials vars like player (player.vertex)
 
