@@ -142,6 +142,8 @@ void						printEntityList(void);
 void						drawEntityList(void);
 void						updateEntityList(void);
 
+void						newBrick(GLfloat x, GLfloat y, GLfloat width, GLfloat height);
+
 /*\  GAME PURPOSE //*/
 
 /**

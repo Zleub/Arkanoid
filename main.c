@@ -49,13 +49,22 @@ int				main(void)
 	g_player.vertex.type = V4;
 	g_player.vertex.shape.V4f.x = 0.0;
 	g_player.vertex.shape.V4f.y = -0.8;
-	g_player.vertex.shape.V4f.width = 0.6;
-	g_player.vertex.shape.V4f.height = 0.1;
+	g_player.vertex.shape.V4f.width = 0.4;
+	g_player.vertex.shape.V4f.height = 0.08;
 
 	addEntity(&g_player.vertex);
 
-	newBall(0.2, -0.2, 0.05);
-	newBall(0.6, -0.0, 0.05);
+	newBall(-0.7, -0.2, 0.02);
+//	newBall(0.6, -0.0, 0.02);
+
+	newBrick(-1, 0.8, 0.15, 0.05);
+	newBrick(-0.84, 0.8, 0.15, 0.05);
+	newBrick(-0.68, 0.8, 0.15, 0.05);
+	newBrick(-0.52, 0.8, 0.15, 0.05);
+	newBrick(-0.36, 0.8, 0.15, 0.05);
+	newBrick(-0.2, 0.8, 0.15, 0.05);
+	newBrick(-0.04, 0.8, 0.15, 0.05);
+	newBrick(0.12, 0.8, 0.15, 0.05);
 
 	window = init();
 	while (!glfwWindowShouldClose(window))
