@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 03:47:03 by adebray           #+#    #+#             */
-/*   Updated: 2015/05/02 06:08:53 by adebray          ###   ########.fr       */
+/*   Updated: 2015/05/02 08:06:54 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void			update(void)
 {
 	glfwPollEvents();
+	updateEntityList();
 }
 
 void			draw(GLFWwindow *window)
@@ -30,8 +31,10 @@ void			draw(GLFWwindow *window)
 	glLoadIdentity();
 	glOrtho(-ratio, ratio, -1.f, 1.f, 1.f, -1.f);
 
-	drawVertex4f(&(g_player.vertex.shape.V4f));
-	drawCircle(-0.8f, 0.2f, 0.05f);
+	// drawVertex4f(&(g_player.vertex.shape.V4f));
+	// drawCircle(-0.8f, 0.2f, 0.05f);
+
+	drawEntityList();
 
 	glfwSwapBuffers(window);
 	glfwPollEvents();
@@ -51,6 +54,8 @@ int				main(void)
 
 	addEntity(&g_player.vertex);
 
+	newBall(0.2, -0.2, 0.05);
+	newBall(0.6, -0.0, 0.05);
 
 	window = init();
 	while (!glfwWindowShouldClose(window))

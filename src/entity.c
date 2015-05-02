@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 05:21:28 by adebray           #+#    #+#             */
-/*   Updated: 2015/05/02 06:13:06 by adebray          ###   ########.fr       */
+/*   Updated: 2015/05/02 07:27:00 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,47 @@ void			printEntityList(void)
 	}
 }
 
-void			updateEntities(void)
+void			drawEntity(t_Entity *e)
 {
+	if (e->type == V2)
+		// printf("Vectex2f:\n\tx:%f\n\ty:%f\n", e->shape.V2f.x, e->shape.V2f.y);
+		;
+	if (e->type == V3)
+		drawCircle(e->shape.V3f.x, e->shape.V3f.y, e->shape.V3f.radius);
+	if (e->type == V4)
+		drawVertex4f(&e->shape.V4f);
+}
 
+void			drawEntityList(void)
+{
+	t_EntityList	*tmp;
+
+	tmp = g_entity;
+	while (tmp)
+	{
+		drawEntity(tmp->content);
+		tmp = tmp->next;
+	}
+}
+
+void			updateEntity(t_Entity *e)
+{
+	if (e->type == V2)
+		;
+	if (e->type == V3)
+		e->_update(e);
+	if (e->type == V4)
+		;
+}
+
+void			updateEntityList(void)
+{
+	t_EntityList	*tmp;
+
+	tmp = g_entity;
+	while (tmp)
+	{
+		updateEntity(tmp->content);
+		tmp = tmp->next;
+	}
 }

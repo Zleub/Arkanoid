@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 03:47:52 by adebray           #+#    #+#             */
-/*   Updated: 2015/05/02 06:04:58 by adebray          ###   ########.fr       */
+/*   Updated: 2015/05/02 07:28:21 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ typedef struct s_Entity		t_Entity;
 
 struct						s_Entity
 {
+	void					(*_update)(t_Entity*);
+	t_Vertex2f				direction;
 	t_Vertexf				shape;
 	int						type;
 };
@@ -135,12 +137,15 @@ struct						s_EntityList
 };
 
 void						addEntity(t_Entity *new);
+void						printEntity(t_Entity *e);
 void						printEntityList(void);
+void						drawEntityList(void);
+void						updateEntityList(void);
 
 /*\  GAME PURPOSE //*/
 
 /**
- *	Basic info for player :
+ *	Basic info for global player :
  *	vertex stand for the quad use both for
  *		drawing && collision
  */
@@ -150,6 +155,21 @@ struct						s_player
 {
 	t_Entity				vertex;
 };
+
+/**
+ *	Basic info for balls, please use constructor newBall
+ */
+typedef	struct s_ball		t_ball;
+
+struct						s_ball
+{
+	t_Entity				vertex;
+};
+
+/**
+ *	Standard ball constructor. Auto-add to EntityList
+ */
+void						newBall(GLfloat x, GLfloat y, GLfloat radius);
 
 GLFWwindow*					init(void);
 
