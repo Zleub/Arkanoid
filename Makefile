@@ -6,7 +6,7 @@
 #    By: adebray <adebray@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/10/02 03:26:29 by adebray           #+#    #+#              #
-#    Updated: 2015/05/02 05:44:34 by adebray          ###   ########.fr        #
+#    Updated: 2015/05/02 05:45:44 by adebray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -39,9 +39,9 @@ _depend:
 		make ;\
 	)
 
-all: _depend $(NAME)
+all: $(NAME)
 
-$(NAME): makelib $(OBJ)
+$(NAME): _depend makelib $(OBJ)
 	@$(CC) $(CCFLAGS) $(HEADFLAG) $(GLFW3) -o $(NAME) $(OBJ)
 	@echo '!'
 	@echo "\033[32m•\033[0m $(NAME) compil: \033[32m$(NAME)\033[0m"
