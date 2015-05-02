@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 04:20:46 by adebray           #+#    #+#             */
-/*   Updated: 2015/05/02 05:18:54 by adebray          ###   ########.fr       */
+/*   Updated: 2015/05/02 06:12:12 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,10 +24,10 @@ static void key_callback(GLFWwindow* window, int key, int scancode, int action, 
 	(void)mods;
 	if (key == GLFW_KEY_ESCAPE && action == GLFW_PRESS)
 		glfwSetWindowShouldClose(window, GL_TRUE);
-	if (key == LEFT)
-		g_player.vertex.shape.V4f.x -= 0.2;
-	if (key == RIGHT)
-		g_player.vertex.shape.V4f.x += 0.2;
+	if (key == LEFT && g_player.vertex.shape.V4f.x > -1.3)
+		g_player.vertex.shape.V4f.x -= 0.1;
+	if (key == RIGHT && g_player.vertex.shape.V4f.x + g_player.vertex.shape.V4f.width < 1.2)
+		g_player.vertex.shape.V4f.x += 0.1;
 }
 
 GLFWwindow*		init(void)

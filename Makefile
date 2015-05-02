@@ -6,7 +6,7 @@
 #    By: adebray <adebray@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/10/02 03:26:29 by adebray           #+#    #+#              #
-#    Updated: 2015/05/02 06:00:53 by adebray          ###   ########.fr        #
+#    Updated: 2015/05/02 06:13:27 by adebray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -70,6 +70,7 @@ fclean:
 	@make -C $(SRCDIR)/ft_printf fclean
 	@rm -f $(OBJ)
 	@rm -f $(NAME)
+	@rm -f glfw/src/libglfw3.a
 	@rm -f asm
 	@echo "\033[31m•\033[0m $(NAME) fclean: \033[31m$(NAME)\033[0m"
 

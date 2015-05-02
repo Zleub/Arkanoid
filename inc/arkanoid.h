@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 03:47:52 by adebray           #+#    #+#             */
-/*   Updated: 2015/05/02 05:27:30 by adebray          ###   ########.fr       */
+/*   Updated: 2015/05/02 06:04:58 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,6 +135,7 @@ struct						s_EntityList
 };
 
 void						addEntity(t_Entity *new);
+void						printEntityList(void);
 
 /*\  GAME PURPOSE //*/
 

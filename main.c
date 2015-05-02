@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/02 03:47:03 by adebray           #+#    #+#             */
-/*   Updated: 2015/05/02 05:52:21 by adebray          ###   ########.fr       */
+/*   Updated: 2015/05/02 06:08:53 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,13 @@ int				main(void)
 
 	addEntity(&g_player.vertex);
 
+
 	window = init();
 	while (!glfwWindowShouldClose(window))
 	{
 		update();
 		draw(window);
+		printEntityList();
 	}
 	glfwDestroyWindow(window);
 	glfwTerminate();
