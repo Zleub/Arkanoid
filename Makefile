@@ -6,7 +6,7 @@
 #    By: adebray <adebray@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2014/10/02 03:26:29 by adebray           #+#    #+#              #
-#    Updated: 2015/05/02 05:48:25 by adebray          ###   ########.fr        #
+#    Updated: 2015/05/02 06:00:53 by adebray          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,13 +31,14 @@ GLFW3			+=	-Lsrc/ft_printf -lftprintf
 .PHONY: all clean fclean re $(NAME)
 
 _depend:
-	@(\
+	@if [ ! -s "glfw/src/libglfw3.a" ]; then (\
 		cd glfw ;\
 		git submodule init ;\
 		git submodule update ;\
 		cmake . ;\
 		make ;\
-	) && make $(NAME)
+	) fi;\
+	make $(NAME)
 
 all: _depend
 
