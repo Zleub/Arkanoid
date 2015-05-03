@@ -6,7 +6,7 @@
 /*   By: adebray <adebray@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/05/03 02:35:54 by adebray           #+#    #+#             */
-/*   Updated: 2015/05/03 22:33:48 by adebray          ###   ########.fr       */
+/*   Updated: 2015/05/03 22:58:07 by adebray          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,10 +87,10 @@ void				removeentitylevel(void)
 	tmp = g_entity;
 	while (tmp)
 	{
-		tmp = tmp->next;
-		if (tmp->content->typegame == BRICK_INFIN &&
-			tmp->content->typegame == BRICK &&
-			tmp->content->typegame == BRICK_OVERTIME)
+		if (tmp->content->typegame != PLAYER &&
+			tmp->content->typegame != BALL &&
+			tmp->content->typegame != WALL)
 			removeentity(tmp->content);
+		tmp = tmp->next;
 	}
 }
