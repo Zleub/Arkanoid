@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include <arkanoid.h>
+#include <time.h>
 
 void			update(void)
 {
@@ -49,32 +50,26 @@ int				main(void)
 	g_player.vertex.type = V4;
 	g_player.vertex.shape.V4f.x = 0.0;
 	g_player.vertex.shape.V4f.y = -0.8;
-	g_player.vertex.shape.V4f.width = 0.4;
-	g_player.vertex.shape.V4f.height = 0.08;
+	g_player.vertex.shape.V4f.width = 0.45;
+	g_player.vertex.shape.V4f.height = 0.06;
 
 	addEntity(&g_player.vertex);
 
-	// newBall(-0.7, -0.2, 0.02);
+//	newBall(0, 1, 0.02);
 //	newBall(0.6, -0.0, 0.02);
-	newWall(-0.9, -0.9, 0.01, 0.01);
-	newWall(0.9, -0.9, 0.01, 0.01);
-	newWall(0.9, 0.9, 0.01, 0.01);
-	newWall(-0.9, 0.9, 0.01, 0.01);
+	newWall(-0.95, -0.95, 1.8, 0.01);
+	newWall(-0.95, -0.95, 0.02, 1.9);
+	newWall(0.95, -0.95, 0.02, 1.9);
+	newWall(-0.95, 0.95, 1.9, 0.02);
 	// newWall(-0.9, 0.9, 1.95, 0.2);
 //	newWall(0.9, 0.9, 2, 0.01);
 
-	newBrick(-1, 0.8, 0.15, 0.05);
-	newBrick(-0.84, 0.8, 0.15, 0.05);
-	newBrick(-0.68, 0.8, 0.15, 0.05);
-	newBrick(-0.52, 0.8, 0.15, 0.05);
-	newBrick(-0.36, 0.8, 0.15, 0.05);
-	newBrick(-0.2, 0.8, 0.15, 0.05);
-	newBrick(-0.04, 0.8, 0.15, 0.05);
-	newBrick(0.12, 0.8, 0.15, 0.05);
-
 	window = init();
+	srand(time(NULL));
 	while (!glfwWindowShouldClose(window))
 	{
+		if (!(rand() % 100))
+			newBall((rand() % 3) - 1, 1, 0.02);
 		update();
 		draw(window);
 		printEntityList();

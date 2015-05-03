@@ -69,15 +69,13 @@ void		basicBallUpdate(t_Entity * e)
 					if (BallCollision(tmp1 + tmp->content->shape.V4f.x, tmp2 + tmp->content->shape.V4f.y, e->shape.V3f))
 					{
 						e->direction.y *= -1;
-//						e->direction.x *= -2;
-					//	e->direction.x -= (e->direction.x * 2);
 						printf("collision\n");
 					}
-					if (e->shape.V3f.y < -0.9)
-					{
-						printf("YOU LOOSE\n");
-						exit(0);
-					}
+			//		if (e->shape.V3f.y < -1)
+			//		{
+			//			printf("YOU LOOSE\n");
+			//			exit(0);
+			//		}
 					tmp2 += 0.01;
 				}
 				tmp1 += 0.01;
@@ -97,7 +95,7 @@ void		newBall(GLfloat x, GLfloat y, GLfloat radius)
 
 	if (!(new = (t_ball*)malloc(sizeof(t_ball))))
 		exit(EXIT_FAILURE);
-	new->vertex.direction.x = 50;
+	new->vertex.direction.x = (rand() % 100) - 50;
 	new->vertex.direction.y = -100;
 	new->vertex.type = V3;
 	new->vertex.shape.V3f.x = x;
